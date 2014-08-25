@@ -1,2 +1,8 @@
-
 <%= link_to "Add Movie", new_movie_path %>
+
+<% if @movies %>
+  <% @movies.each_with_index do |movie, index| %>
+    <h5 class="movie-title" id="<%= index %>"><%= movie.name %> (<span class="movie-year"><%= movie.year %></span>)</h5>
+    <p class="movie-synopsis"><%= movie.synopsis %></p>
+  <% end %>
+<% end %>
