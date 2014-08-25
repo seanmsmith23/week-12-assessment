@@ -1,3 +1,9 @@
+<% if @movie.errors.any? %>
+  <% @movie.errors.full_messages.each do |msg| %>
+    <p class="error-msg"><%= msg %></p>
+  <% end %>
+<% end %>
+
 <%= form_for @movie do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>

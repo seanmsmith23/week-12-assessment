@@ -22,4 +22,15 @@ feature "Add Movies" do
     expect(page).to have_content("Synopsis")
     expect(page).to have_button("Create Movie")
   end
+
+  scenario "New movie form validates for name/year presence and year is a number. Shows error messages on form" do
+    visit '/'
+    click_link("Add Movie")
+    click_button("Create Movie")
+
+    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Year can't be blank")
+    expect(page).to have_content("Year is not a number")
+  end
 end
+
